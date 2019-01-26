@@ -6,15 +6,16 @@ class Binary:
     #declares and initiallizes the binary string as a list
     #the most significant bit is at index 0 of the list
     def __init__(self,x):
-        self.binString = x
+        self.stringInput = x
+        self.binString =[int(i) for i in x]
 
     #used as a private helper function to this class
     #argument: b1 a binary string represented as a list
     #argument: b2 a binary string represented as a list
     #cond: a function to compare bits, returns boolean
     #returns the string result of the operation 
-    def iterateComp(b1,b2,cond):
-        temp = []*4
+    def iterateComp(self,b1,b2,cond):
+        temp = [None]*4
         for x in range(4):
             if cond(b1[x],b2[x]):
                 temp[x] = 1
@@ -27,12 +28,13 @@ class Binary:
     #and bin2
     #returns Binary class instance
     def And(self,bin2):
-        temp = []*4
+        temp = [None]*4
         b1 = self.binString
         b2 = bin2.binString
-
+        andfn = lambda x,y : ((x == y) and (x == 1))
+        
         #compare and store anded values in temp
-        temp = interateComp(b1,b2,(lambda x,y : (x == y) and (x == 1)))
+        temp = self.iterateComp(b1,b2,andfn)
                 
         #create and return instance of bin class
         return Binary(temp)
@@ -42,12 +44,12 @@ class Binary:
     #and bin2
     #returns Binary class instance
     def Or(self,bin2):
-        temp = []*4
+        temp = [None]*4
         b1 = self.binString
         b2 = bin2.binString
 
        #compare and store or'ed values in temp
-        temp = iterateComp(b1,b2,(lambda x,y : (x == 1) or (y==1)))
+        temp = self.iterateComp(b1,b2,(lambda x,y : (x == 1) or (y==1)))
                 
         #create and return instance of bin class
         return Binary(temp)
@@ -56,7 +58,7 @@ class Binary:
     #of applying the not(~) operator to the binary string
     #returns Binary class instance
     def Not(self):
-        temp = []*4
+        temp = [None]*4
         for x in range(4):
             if(self.binString[x] == 1):
                 temp[x] = 0
@@ -70,18 +72,20 @@ class Binary:
     #and bin2
     #returns Binary class instance
     def Xor(self,bin2):
-        temp = []*4
+        temp = [None]*4
         b1 = self.binString
         b2 = bin2.binString
 
         #compare and store xor'ed values in temp
-        temp = iterateComp(b1,b2,
+        temp = self.iterateComp(b1,b2,
              (lambda x,y : ((x == 1) and (y==0))or((x == 0)and(y == 1))))
                 
         #create and return instance of bin class
         return Binary(temp)
 
     
+
+        
         
         
         

@@ -1,6 +1,11 @@
 #Binary class interface written by Cambrea Earley
 #Informal interface for the Binary class
 
+Binary class 
+create an instance of the class with binary string 1100 by
+B = Binary("1100"), in this example, the most significant bit is to
+the far left.  Binary takes in a string
+
 
 #argument bin2 represents another instance of the binary class
 #And will return the result of the and(&) bit operator applied to self
