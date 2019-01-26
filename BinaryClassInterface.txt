@@ -1,1 +1,26 @@
+#Binary class interface written by Cambrea Earley
 #Informal interface for the Binary class
+
+
+#argument bin2 represents another instance of the binary class
+#And will return the result of the and(&) bit operator applied to self
+#and bin2
+#returns Binary class instance
+def And(Binary bin2);
+
+#argument bin2 represents another instance of the binary class
+#Or will return the result of the or(|) bit operator applied to self
+#and bin2
+#returns Binary class instance
+def Or(Binary bin2);
+
+#Not will create a Binary class instance with the result
+# of applying the not(~) operator to the binary string
+#returns Binary class instance
+def Not();
+
+#argument bin2 represents another instance of the binary class
+#Xor will return the result of the xor(^) bit operator applied to self
+#and bin2
+#returns Binary class instance
+def Xor(Binray bin2);
