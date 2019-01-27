@@ -20,11 +20,6 @@ class BitBrainGame(Screen):
 	and_puzzle_3_completed = False
 	and_puzzle_4_completed = False
 
-	# initialize variables to reference buttons for enabling/disabling the tutorials
-	# and_tutorial = ObjectProperty()
-	# or_tutorial = ObjectProperty(Button)
-	# not_tutorial = ObjectProperty()
-
 	# AND STUFF
 	def and_tutorial_completed(self):
 		self.ids.and_button_1.disabled = False
@@ -109,12 +104,8 @@ class BitBrainPuzzleFunctions(Screen):
 		# CHECKS BINARY VALIDITY
 	def checkPuzzle(self, firstInput, secondInput, userInput, functionNum):
 		first = Binary(firstInput)
-		# if difficulty==0:
 		second = Binary(secondInput)
 		result = Binary(userInput)
-		# else:
-		# 	second = Binary(userInput)
-		#     result = Binary(secondInput)
 		if functionNum == 0:
 			return self.check2Input(first, second, result, 0)
 		else:
