@@ -1,6 +1,4 @@
-SheInnovatesHackathon
-
-This project is created by Cambrea Earley, Michelle Hu, and Nina Gupta
+This project was created by Cambrea Earley, Michelle Hu, and Nina Gupta for the SheInnovates Hackathon
 
 
 # Bit Brain
