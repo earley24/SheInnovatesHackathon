@@ -11,6 +11,11 @@ The game teaches the user about the binary operators and(&) or(|) and not(~) by 
 _______________________________________________________
 Instructions for running as Android App:
 
+Download these files to one directory
+dist
+
+run bitbrain application in Android emulator
+
 
 _______________________________________________________
 Instructions for running base program:
@@ -19,7 +24,8 @@ Needed Libraries:
 
 kivy: can be downloaded [here](https://kivy.org/#download) 
 <pre>
-keep these files in the same directory
+
+Download these files to one directory
 main.py
 bitbrain.kv
 puzzles.py
