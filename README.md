@@ -1,8 +1,8 @@
-# SheInnovatesHackathon
+SheInnovatesHackathon
 This project is created by Cambrea Earley, Michelle Hu, and Nina Gupta
 
 
-Bit Brain
+# Bit Brain
 
 This program is a game targeted toward students in grades 5th-8th grade.  
 The game teaches the user about the binary operators and(&) or(|) and not(~) by providing tutorials and puzzles 
