@@ -30,6 +30,7 @@ comp.png
 or.png
 
 open main.py and run using a python IDE
+
 </pre>
 _______________________________________________________
 
