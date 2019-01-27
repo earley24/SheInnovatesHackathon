@@ -1,4 +1,5 @@
 SheInnovatesHackathon
+
 This project is created by Cambrea Earley, Michelle Hu, and Nina Gupta
 
 
