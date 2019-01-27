@@ -13,7 +13,7 @@ Instructions for running as Android App:
 
 
 _______________________________________________________
-Instructions for running base program on a python IDE:
+Instructions for running base program:
 
 Needed Libraries:
 
