@@ -18,7 +18,7 @@ _______________________________________________________
 Instructions for running base program on a python IDE:
 <pre>
 Needed Libraries:
-kivy: can be [downloaded](https://kivy.org/#download) from
+kivy: can be downloaded from https://kivy.org/#download 
 
 keep these files in the same directory
 main.py
