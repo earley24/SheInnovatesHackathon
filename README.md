@@ -16,9 +16,9 @@ Instructions for running as Android App:
 
 _______________________________________________________
 Instructions for running base program on a python IDE:
-
+<pre>
 Needed Libraries:
-kivy: can be downloaded from https://kivy.org/#download
+kivy: can be [downloaded](https://kivy.org/#download) from
 
 keep these files in the same directory
 main.py
@@ -31,5 +31,6 @@ comp.png
 or.png
 
 open main.py and run using a python IDE
+</pre>
 _______________________________________________________
 
