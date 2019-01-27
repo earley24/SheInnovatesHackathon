@@ -3,9 +3,8 @@ This project was created by Cambrea Earley, Michelle Hu, and Nina Gupta for the 
 
 # Bit Brain
 
-This program is a game targeted toward students in grades 5th-8th grade.  
-The game teaches the user about the binary operators and(&) or(|) and not(~) by providing tutorials and puzzles 
-for each operator. 
+This program is a game targeted toward students in grades 5th-8th.  
+The game teaches the user about the binary operators and(&) or(|) and not(~) by providing tutorials and puzzles for each operator. 
 
 
 
