@@ -10,13 +10,13 @@ The game teaches the user about the binary operators and(&) or(|) and not(~) by 
 
 _______________________________________________________
 Instructions for running as Android App:
-
+<pre>
 Download these files to one directory
 dist
 
 run bitbrain application in Android emulator
 
-
+</pre>
 _______________________________________________________
 Instructions for running base program:
 
