@@ -15,10 +15,11 @@ Instructions for running as Android App:
 
 _______________________________________________________
 Instructions for running base program on a python IDE:
-<pre>
-Needed Libraries:
-kivy: can be downloaded from https://kivy.org/#download 
 
+Needed Libraries:
+
+kivy: can be downloaded [here](https://kivy.org/#download) 
+<pre>
 keep these files in the same directory
 main.py
 bitbrain.kv
