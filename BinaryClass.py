@@ -1,4 +1,4 @@
-#Binary class written  by Cambrea Earley
+#Binary class written by Cambrea Earley
 #This class creates a binary string and implements &,|,~,^
 #bit operations are supported between Binary class instances
 
@@ -78,7 +78,7 @@ class Binary:
 
         #compare and store xor'ed values in temp
         temp = self.iterateComp(b1,b2,
-             (lambda x,y : ((x == 1) and (y==0))or((x == 0)and(y == 1))))
+             (lambda x,y : ((x == 1) and (y==0)) or ((x == 0) and (y == 1))))
                 
         #create and return instance of bin class
         return Binary(temp)

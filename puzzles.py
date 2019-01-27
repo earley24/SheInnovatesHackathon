@@ -44,78 +44,77 @@ easyNotPuzzles = [input1a, input2a, input3a, input4a]
 mediumNotPuzzles = [input5, input6, input7, input8]
 
 
-#takes in inputs as Binary objects
-def check2Input(first, second, result, functionNum):
-	#determine if correct using and functions for 0, or functions for 1
-		if functionNum ==0 && (result.binString==(first.AND(second)).binString):
-			unlock next level
-		elif functionNum ==1 && (result.binString==(first.OR(second)).binString):
-			unlock next level
-		else:
-			refresh screen??
+# takes in inputs as Binary objects
+# def check2Input(first, second, result, functionNum):
+# 	#determine if correct using and functions for 0, or functions for 1
+# 	if functionNum ==0 and (result.binString==(first.AND(second)).binString):
+# 		unlock next level
+# 	elif functionNum ==1 and (result.binString==(first.OR(second)).binString):
+# 		unlock next level
+# 	else:
+# 		refresh screen??
 
-#checks if ~first == result
-def check1Input(first, result):
-		if (result.binString==((first.NOT()).binString)):
-			unlock next level
-		else:
-			refresh screen??
+# #checks if ~first == result
+# def check1Input(first, result):
+# 		if (result.binString==((first.NOT()).binString)):
+# 			unlock next level
+# 		else:
+# 			refresh screen??
 
-#won't work for not because not only ever has 1 input
-#functionNum = 0 for and, 1 for or
-#difficulty = 0 for easy, 1 for medium
-def showPuzzle((firstInput, secondInput), functionNum, difficulty):
-	#do some GUI stuff to diplay the puzzle
-		#need to display firstInput of type string on one line (display text)
-		#need to display secondInput of type string on one line (display text)
-		#need to display empty text box for user's input
-	#read user input to var userInput or something
-	first = Binary(firstInput)
-    if difficulty==0: 	
-		second = Binary(secondInput)
-		result = Binary(userInput)
-	else
-	    second = Binary(userInput)
-		result = Binary(secondInput)
+# #won't work for not because not only ever has 1 input
+# #functionNum = 0 for and, 1 for or
+# #difficulty = 0 for easy, 1 for medium
+# def showPuzzle((firstInput, secondInput), functionNum, difficulty):
+# 	#do some GUI stuff to diplay the puzzle
+# 		#need to display firstInput of type string on one line (display text)
+# 		#need to display secondInput of type string on one line (display text)
+# 		#need to display empty text box for user's input
+# 	#read user input to var userInput or something
+# 	first = Binary(firstInput)
+#     if difficulty==0: 	
+# 		second = Binary(secondInput)
+# 		result = Binary(userInput)
+# 	else
+# 	    second = Binary(userInput)
+# 		result = Binary(secondInput)
 
-	check2Input(first, second, result, functionNum)
+# 	check2Input(first, second, result, functionNum)
 	
-#difficulty 0 = easy, 1 = medium
-def showNot(firstInput):
-	#do some GUI stuff to diplay the puzzle
-	#read user input
-	userInput = read user input
-     #here it doesnt really matter the order of these because ~first = result
-	first = Binary(firstInput)
-	result = Binary(userInput)
+# #difficulty 0 = easy, 1 = medium
+# def showNot(firstInput):
+# 	#do some GUI stuff to diplay the puzzle
+# 	#read user input
+# 	userInput = read user input
+#      #here it doesnt really matter the order of these because ~first = result
+# 	first = Binary(firstInput)
+# 	result = Binary(userInput)
 
-	check2Input(first, result)
+# 	check2Input(first, result)
 
 
-#function num = 0 for And, 1 for Or so we know which verification function to use
-def play():
-	#show AND ex1
-	for x in easyAndOrPuzzles:
-		showPuzzle(x, 0, 0)
-		print("Yay, you're one step closer to winning!")
-    #show AND ex2
-	for x in mediumAndPuzzles:
-		showPuzzle(x, 0, 1)
-	#show OR ex1
-	for x in easyAndOrPuzzles:
-		showPuzzle(x, 1, 0)
-	#show OR ex2
-	for x in mediumOrPuzzles:
-		showPuzzle(x, 1, 1)	
-	#show NOT ex1
-	for x in easyNotPuzzles:
-		showNot(x)
-	#show NOT ex2
-	for x in mediumNotPuzzles:
-		showNot(x)
+# #function num = 0 for And, 1 for Or so we know which verification function to use
+# def play():
+# 	#show AND ex1
+# 	for x in easyAndOrPuzzles:
+# 		showPuzzle(x, 0, 0)
+# 		print("Yay, you're one step closer to winning!")
+#     #show AND ex2
+# 	for x in mediumAndPuzzles:
+# 		showPuzzle(x, 0, 1)
+# 	#show OR ex1
+# 	for x in easyAndOrPuzzles:
+# 		showPuzzle(x, 1, 0)
+# 	#show OR ex2
+# 	for x in mediumOrPuzzles:
+# 		showPuzzle(x, 1, 1)	
+# 	#show NOT ex1
+# 	for x in easyNotPuzzles:
+# 		showNot(x)
+# 	#show NOT ex2
+# 	for x in mediumNotPuzzles:
+# 		showNot(x)
     
-	print("You win!")
+# 	print("You win!")
 
 
 
-print("hi")

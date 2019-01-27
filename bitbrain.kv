@@ -1,0 +1,688 @@
+#:import BitBrainGame main.BitBrainGame
+
+<BitBrainScreenManager>:
+	BitBrainWelcome:
+		id: "welcome"
+	BitBrainGame:
+		id: "game"
+	BitBrainAndTutorial:
+		id: "bit_brain_and_tutorial"
+	BitBrainOrTutorial:
+		id: "bit_brain_or_tutorial"
+	BitBrainCompTutorial:
+		id: "bit_brain_comp_tutorial"
+	BitBrainAndPuzzle1:
+		id: "bit_brain_and_puzzle1"
+	BitBrainAndPuzzle2:
+		id: "bit_brain_and_puzzle2"
+	BitBrainAndPuzzle3:
+		id: "bit_brain_and_puzzle3"
+	BitBrainAndPuzzle4:
+		id: "bit_brain_and_puzzle4"
+	BitBrainOrPuzzle1:
+		id: "bit_brain_or_puzzle1"
+	BitBrainOrPuzzle2:
+		id: "bit_brain_or_puzzle2"
+	BitBrainOrPuzzle3:
+		id: "bit_brain_or_puzzle3"
+	BitBrainOrPuzzle4:
+		id: "bit_brain_or_puzzle4"
+	BitBrainCompPuzzle1:
+		id: "bit_brain_comp_puzzle1"
+	BitBrainCompPuzzle2:
+		id: "bit_brain_comp_puzzle2"
+	BitBrainCompPuzzle3:
+		id: "bit_brain_comp_puzzle3"
+	BitBrainCompPuzzle4:
+		id: "bit_brain_comp_puzzle4"
+
+<BitBrainWelcome>:
+	name: "welcome"
+	BoxLayout:
+		orientation: "vertical"
+		canvas:
+			Rectangle:
+				pos: 5, self.height / 2 + 5
+				size: self.width - 10, self.height / 2 - 10
+		Label:
+			font_size: 60
+			center_x: root.width / 2
+			top: root.top - 50
+			text: "Bit Brain"
+			color: 5/255, 57/255, 112/255, 1
+			canvas:
+				Color:
+					rgba: 0, 0, 0, 1
+		Button:
+			text: "Play"
+			halign: "center"
+			valign: "middle"
+			pos: (root.width / 2) - 90, 40
+			on_release: root.manager.current = "game"
+
+#################### GRAPHICS ####################
+<BitBrainGame>:
+	name: "game"
+	BoxLayout:
+		orientation: "vertical"
+		canvas:
+			Rectangle:
+				pos: 5, 3 * self.height / 4
+				size: self.width - 10, self.height / 4 - 5
+
+		Label:
+			font_size: 60
+			#center_x: root.width / 2
+			#top: root.top - 50
+			#anchor_y: 'bottom'
+			text: "Bit Brain"
+			color: 5/255, 57/255, 112/255, 1
+			canvas:
+				Color:
+					rgba: 0, 0, 0, 1
+
+		Label:
+			font_size: 60
+			#center_x: root.width / 2
+			#top: root.top - 50
+			#anchor_y: 'bottom'
+			text: ""
+			color: 5/255, 57/255, 112/255, 1
+			canvas:
+				Color:
+					rgba: 0, 0, 0, 1
+
+		Label:
+			font_size: 60
+			#center_x: root.width / 2
+			#top: root.top - 50
+			#anchor_y: 'bottom'
+			text: ""
+			color: 5/255, 57/255, 112/255, 1
+			canvas:
+				Color:
+					rgba: 0, 0, 0, 1
+
+		Button:
+			text: "Back"
+			size: root.width / 2, root.height / 4
+			background_color: (149 / 255, 197 / 255, 251 / 255, 1.0)
+			on_release: root.manager.current = "welcome"
+	
+	##########################################
+	##########   TUTORIAL BUTTONS   ##########
+	##########################################
+	Button:
+		id: and_tutorial
+		text: "'And' (&)"
+		pos: root.width / 6 - 10, (9 * root.height / 16) + 5
+		size_hint: None, None
+		size: root.height / 3 + 25, root.height / 8
+		on_press: root.manager.current = "bit_brain_and_tutorial"
+		on_release: root.and_tutorial_completed()
+	Button:
+		id: or_tutorial
+		text: "'Or' (|)"
+		pos: root.width / 2 - root.width / 3 - 10, root.height / 2 - root.height / 16
+		size_hint: None, None
+		size: root.height / 3 + 25, root.height / 8
+		on_press: root.manager.current = "bit_brain_or_tutorial"
+		on_release: root.or_tutorial_completed()
+	Button:
+		id: comp_tutorial
+		text: "'Not' (~)"
+		pos: root.width / 2 - root.width / 3 - 10, root.height / 2 - (3 * root.height) / 16 - 5
+		size_hint: None, None
+		size: root.height / 3 + 25, root.height / 8
+		on_press: root.manager.current = "bit_brain_comp_tutorial"
+		on_release: root.comp_tutorial_completed()
+
+	########################################
+	##########   PUZZLE BUTTONS   ##########
+	########################################
+
+	########### AND
+	Button:
+		id: and_button_1
+		text: "1"
+		disabled: True
+		pos: root.width / 2 - (3 * root.height / 16) + 80, (9 * root.height / 16) + 5
+		size_hint: None, None
+		size: root.height / 8, root.height / 8
+		on_press: root.manager.current = "bit_brain_and_puzzle1"
+	Button:
+		id: and_button_2
+		text: "2"
+		disabled: True
+		pos: root.width / 2 - root.height / 16 + 85, (9 * root.height / 16) + 5
+		size_hint: None, None
+		size: root.height / 8, root.height / 8
+		on_press: root.manager.current = "bit_brain_and_puzzle2"
+	Button:
+		id: and_button_3
+		text: "3"
+		disabled: True
+		pos: root.width / 2 + root.height / 16 + 90, (9 * root.height / 16) + 5
+		size_hint: None, None
+		size: root.height / 8, root.height / 8
+		on_press: root.manager.current = "bit_brain_and_puzzle3"
+	Button:
+		id: and_button_4
+		text: "4"
+		disabled: True
+		pos: root.width / 2 + (3 * root.height / 16) + 95, (9 * root.height / 16) + 5
+		size_hint: None, None
+		size: root.height / 8, root.height / 8
+		on_press: root.manager.current = "bit_brain_and_puzzle4"
+
+	
+	########### OR
+	Button:
+		id: or_button_1
+		text: "1"
+		disabled: True
+		pos: root.width / 2 - (3 * root.height / 16) + 80, root.height / 2 - root.height / 16
+		size_hint: None, None
+		size: root.height / 8, root.height / 8
+		on_press: root.manager.current = "bit_brain_or_puzzle1"
+	Button:
+		id: or_button_2
+		text: "2"
+		disabled: True
+		pos: root.width / 2 - root.height / 16 + 85, root.height / 2 - root.height / 16
+		size_hint: None, None
+		size: root.height / 8, root.height / 8
+		on_press: root.manager.current = "bit_brain_or_puzzle2"
+	Button:
+		id: or_button_3
+		text: "3"
+		disabled: True
+		pos: root.width / 2 + root.height / 16 + 90, root.height / 2 - root.height / 16
+		size_hint: None, None
+		size: root.height / 8, root.height / 8
+		on_press: root.manager.current = "bit_brain_or_puzzle3"
+	Button:
+		id: or_button_4
+		text: "4"
+		disabled: True
+		pos: root.width / 2 + (3 * root.height / 16) + 95, root.height / 2 - root.height / 16
+		size_hint: None, None
+		size: root.height / 8, root.height / 8
+		on_press: root.manager.current = "bit_brain_or_puzzle4"
+	
+
+	########### NOT
+	Button:
+		id: comp_button_1
+		text: "1"
+		disabled: True
+		pos: root.width / 2 - (3 * root.height / 16) + 80, root.height / 2 - (3 * root.height) / 16 - 5
+		size_hint: None, None
+		size: root.height / 8, root.height / 8
+		on_press: root.manager.current = "bit_brain_comp_puzzle1"
+	Button:
+		id: comp_button_2
+		text: "2"
+		disabled: True
+		pos: root.width / 2 - root.height / 16 + 85, root.height / 2 - (3 * root.height) / 16 - 5
+		size_hint: None, None
+		size: root.height / 8, root.height / 8
+		on_press: root.manager.current = "bit_brain_comp_puzzle2"
+	Button:
+		id: comp_button_3
+		text: "3"
+		disabled: True
+		pos: root.width / 2 + root.height / 16 + 90, root.height / 2 - (3 * root.height) / 16 - 5
+		size_hint: None, None
+		size: root.height / 8, root.height / 8
+		on_press: root.manager.current = "bit_brain_comp_puzzle3"
+	Button:
+		id: comp_button_4
+		text: "4"
+		disabled: True
+		pos: root.width / 2 + (3 * root.height / 16) + 95, root.height / 2 - (3 * root.height) / 16 - 5
+		size_hint: None, None
+		size: root.height / 8, root.height / 8
+		on_press: root.manager.current = "bit_brain_comp_puzzle4"
+
+
+########################################
+##########   ACTUAL PUZZLES   ##########
+########################################
+<BitBrainAndPuzzle1>:
+	name: "bit_brain_and_puzzle1"
+	bit_brain_game: BitBrainGame()
+	Label:
+		font_size: 60
+		#center_x: root.width / 2
+		#top: root.top - 50
+		#anchor_y: 'bottom'
+		text: str("AND (&)" + "\n" + root.display()[0] + "\n" + root.display()[1])
+		color: 1, 1, 1, 1
+		canvas:
+			Color:
+				rgba: 0, 0, 0, 1
+	TextInput:
+		id: textinput_and1
+		text: root.textinput_text
+		multiline: False
+		size_hint: (None, None)
+		font_size: 40
+		pos: root.width / 2 - root.width / 12, 120
+		width: root.width / 6
+		height: 60
+		bold: True
+	Button:
+		id: button_and1
+		text: "Enter"
+		pos: root.width / 2 - root.width / 16, 70
+		size_hint: None, None
+		size: root.width / 8, 40
+		on_press: root.check()
+		on_release:
+			if root.check() == 0: root.manager.current = "game"
+
+<BitBrainAndPuzzle2>:
+	name: "bit_brain_and_puzzle2"
+	bit_brain_game: BitBrainGame()
+	Label:
+		font_size: 60
+		#center_x: root.width / 2
+		#top: root.top - 50
+		#anchor_y: 'bottom'
+		text: str("AND (&)" + "\n" + root.display()[0] + "\n" + root.display()[1])
+		color: 1, 1, 1, 1
+		canvas:
+			Color:
+				rgba: 0, 0, 0, 1
+	TextInput:
+		id: textinput_and2
+		text: root.textinput_text
+		multiline: False
+		size_hint: (None, None)
+		font_size: 40
+		pos: root.width / 2 - root.width / 12, 120
+		width: root.width / 6
+		height: 60
+		bold: True
+	Button:
+		id: button_and2
+		text: "Enter"
+		pos: root.width / 2 - root.width / 16, 70
+		size_hint: None, None
+		size: root.width / 8, 40
+		on_press: root.check()
+		on_release:
+			if root.check() == 0: root.manager.current = "game"
+
+<BitBrainAndPuzzle3>:
+	name: "bit_brain_and_puzzle3"
+	bit_brain_game: BitBrainGame()
+	Label:
+		font_size: 60
+		#center_x: root.width / 2
+		#top: root.top - 50
+		#anchor_y: 'bottom'
+		text: str("AND (&)" + "\n" + root.display()[0] + "\n" + root.display()[1])
+		color: 1, 1, 1, 1
+		canvas:
+			Color:
+				rgba: 0, 0, 0, 1
+	TextInput:
+		id: textinput_and3
+		text: root.textinput_text
+		multiline: False
+		size_hint: (None, None)
+		font_size: 40
+		pos: root.width / 2 - root.width / 12, 120
+		width: root.width / 6
+		height: 60
+		bold: True
+	Button:
+		id: button_and3
+		text: "Enter"
+		pos: root.width / 2 - root.width / 16, 70
+		size_hint: None, None
+		size: root.width / 8, 40
+		on_press: root.check()
+		on_release:
+			if root.check() == 0: root.manager.current = "game"
+
+<BitBrainAndPuzzle4>:
+	name: "bit_brain_and_puzzle4"
+	bit_brain_game: BitBrainGame()
+	Label:
+		font_size: 60
+		#center_x: root.width / 2
+		#top: root.top - 50
+		#anchor_y: 'bottom'
+		text: str("AND (&)" + "\n" + root.display()[0] + "\n" + root.display()[1])
+		color: 1, 1, 1, 1
+		canvas:
+			Color:
+				rgba: 0, 0, 0, 1
+	TextInput:
+		id: textinput_and4
+		text: root.textinput_text
+		multiline: False
+		size_hint: (None, None)
+		font_size: 40
+		pos: root.width / 2 - root.width / 12, 120
+		width: root.width / 6
+		height: 60
+		bold: True
+	Button:
+		id: button_and4
+		text: "Enter"
+		pos: root.width / 2 - root.width / 16, 70
+		size_hint: None, None
+		size: root.width / 8, 40
+		on_press: root.check()
+		on_release:
+			if root.check() == 0: root.manager.current = "game"
+
+<BitBrainOrPuzzle1>:
+	name: "bit_brain_or_puzzle1"
+	bit_brain_game: BitBrainGame()
+	Label:
+		font_size: 60
+		#center_x: root.width / 2
+		#top: root.top - 50
+		#anchor_y: 'bottom'
+		text: str("OR (|)" + "\n" + root.display()[0] + "\n" + root.display()[1])
+		color: 1, 1, 1, 1
+		canvas:
+			Color:
+				rgba: 0, 0, 0, 1
+	TextInput:
+		id: textinput_or1
+		text: root.textinput_text
+		multiline: False
+		size_hint: (None, None)
+		font_size: 40
+		pos: root.width / 2 - root.width / 12, 120
+		width: root.width / 6
+		height: 60
+		bold: True
+	Button:
+		id: button_or1
+		text: "Enter"
+		pos: root.width / 2 - root.width / 16, 70
+		size_hint: None, None
+		size: root.width / 8, 40
+		on_press: root.check()
+		on_release:
+			if root.check() == 0: root.manager.current = "game"
+
+<BitBrainOrPuzzle2>:
+	name: "bit_brain_or_puzzle2"
+	bit_brain_game: BitBrainGame()
+	Label:
+		font_size: 60
+		#center_x: root.width / 2
+		#top: root.top - 50
+		#anchor_y: 'bottom'
+		text: str("OR (|)" + "\n" + root.display()[0] + "\n" + root.display()[1])
+		color: 1, 1, 1, 1
+		canvas:
+			Color:
+				rgba: 0, 0, 0, 1
+	TextInput:
+		id: textinput_or2
+		text: root.textinput_text
+		multiline: False
+		size_hint: (None, None)
+		font_size: 40
+		pos: root.width / 2 - root.width / 12, 120
+		width: root.width / 6
+		height: 60
+		bold: True
+	Button:
+		id: button_or2
+		text: "Enter"
+		pos: root.width / 2 - root.width / 16, 70
+		size_hint: None, None
+		size: root.width / 8, 40
+		on_press: root.check()
+		on_release:
+			if root.check() == 0: root.manager.current = "game"
+
+<BitBrainOrPuzzle3>:
+	name: "bit_brain_or_puzzle3"
+	bit_brain_game: BitBrainGame()
+	Label:
+		font_size: 60
+		#center_x: root.width / 2
+		#top: root.top - 50
+		#anchor_y: 'bottom'
+		text: str("OR (|)" + "\n" + root.display()[0] + "\n" + root.display()[1])
+		color: 1, 1, 1, 1
+		canvas:
+			Color:
+				rgba: 0, 0, 0, 1
+	TextInput:
+		id: textinput_or3
+		text: root.textinput_text
+		multiline: False
+		size_hint: (None, None)
+		font_size: 40
+		pos: root.width / 2 - root.width / 12, 120
+		width: root.width / 6
+		height: 60
+		bold: True
+	Button:
+		id: button_or3
+		text: "Enter"
+		pos: root.width / 2 - root.width / 16, 70
+		size_hint: None, None
+		size: root.width / 8, 40
+		on_press: root.check()
+		on_release:
+			if root.check() == 0: root.manager.current = "game"
+
+<BitBrainOrPuzzle4>:
+	name: "bit_brain_or_puzzle4"
+	bit_brain_game: BitBrainGame()
+	Label:
+		font_size: 60
+		#center_x: root.width / 2
+		#top: root.top - 50
+		#anchor_y: 'bottom'
+		text: str("OR (|)" + "\n" + root.display()[0] + "\n" + root.display()[1])
+		color: 1, 1, 1, 1
+		canvas:
+			Color:
+				rgba: 0, 0, 0, 1
+	TextInput:
+		id: textinput_or4
+		text: root.textinput_text
+		multiline: False
+		size_hint: (None, None)
+		font_size: 40
+		pos: root.width / 2 - root.width / 12, 120
+		width: root.width / 6
+		height: 60
+		bold: True
+	Button:
+		id: button_or4
+		text: "Enter"
+		pos: root.width / 2 - root.width / 16, 70
+		size_hint: None, None
+		size: root.width / 8, 40
+		on_press: root.check()
+		on_release:
+			if root.check() == 0: root.manager.current = "game"
+
+<BitBrainCompPuzzle1>:
+	name: "bit_brain_comp_puzzle1"
+	bit_brain_game: BitBrainGame()
+	Label:
+		font_size: 60
+		#center_x: root.width / 2
+		#top: root.top - 50
+		#anchor_y: 'bottom'
+		text: str("NOT (~)" + "\n" + root.display())
+		color: 1, 1, 1, 1
+		canvas:
+			Color:
+				rgba: 0, 0, 0, 1
+	TextInput:
+		id: textinput_comp1
+		text: root.textinput_text
+		multiline: False
+		size_hint: (None, None)
+		font_size: 40
+		pos: root.width / 2 - root.width / 12, 170
+		width: root.width / 6
+		height: 60
+		bold: True
+	Button:
+		id: button_comp1
+		text: "Enter"
+		pos: root.width / 2 - root.width / 16, 120
+		size_hint: None, None
+		size: root.width / 8, 40
+		on_press: root.check()
+		on_release:
+			if root.check() == 0: root.manager.current = "game"
+
+<BitBrainCompPuzzle2>:
+	name: "bit_brain_comp_puzzle2"
+	bit_brain_game: BitBrainGame()
+	Label:
+		font_size: 60
+		#center_x: root.width / 2
+		#top: root.top - 50
+		#anchor_y: 'bottom'
+		text: str("NOT (~)" + "\n" + root.display())
+		color: 1, 1, 1, 1
+		canvas:
+			Color:
+				rgba: 0, 0, 0, 1
+	TextInput:
+		id: textinput_comp2
+		text: root.textinput_text
+		multiline: False
+		size_hint: (None, None)
+		font_size: 40
+		pos: root.width / 2 - root.width / 12, 170
+		width: root.width / 6
+		height: 60
+		bold: True
+	Button:
+		id: button_comp2
+		text: "Enter"
+		pos: root.width / 2 - root.width / 16, 120
+		size_hint: None, None
+		size: root.width / 8, 40
+		on_press: root.check()
+		on_release:
+			if root.check() == 0: root.manager.current = "game"
+
+<BitBrainCompPuzzle3>:
+	name: "bit_brain_comp_puzzle3"
+	bit_brain_game: BitBrainGame()
+	Label:
+		font_size: 60
+		#center_x: root.width / 2
+		#top: root.top - 50
+		#anchor_y: 'bottom'
+		text: str("NOT (~)" + "\n" + root.display())
+		color: 1, 1, 1, 1
+		canvas:
+			Color:
+				rgba: 0, 0, 0, 1
+	TextInput:
+		id: textinput_comp3
+		text: root.textinput_text
+		multiline: False
+		size_hint: (None, None)
+		font_size: 40
+		pos: root.width / 2 - root.width / 12, 170
+		width: root.width / 6
+		height: 60
+		bold: True
+	Button:
+		id: button_comp3
+		text: "Enter"
+		pos: root.width / 2 - root.width / 16, 120
+		size_hint: None, None
+		size: root.width / 8, 40
+		on_press: root.check()
+		on_release:
+			if root.check() == 0: root.manager.current = "game"
+
+<BitBrainCompPuzzle4>:
+	name: "bit_brain_comp_puzzle4"
+	bit_brain_game: BitBrainGame()
+	Label:
+		font_size: 60
+		#center_x: root.width / 2
+		#top: root.top - 50
+		#anchor_y: 'bottom'
+		text: str("NOT (~)" + "\n" + root.display())
+		color: 1, 1, 1, 1
+		canvas:
+			Color:
+				rgba: 0, 0, 0, 1
+	TextInput:
+		id: textinput_comp4
+		text: root.textinput_text
+		multiline: False
+		size_hint: (None, None)
+		font_size: 40
+		pos: root.width / 2 - root.width / 12, 170
+		width: root.width / 6
+		height: 60
+		bold: True
+	Button:
+		id: button_comp4
+		text: "Enter"
+		pos: root.width / 2 - root.width / 16, 120
+		size_hint: None, None
+		size: root.width / 8, 40
+		on_press: root.check()
+		on_release:
+			if root.check() == 0: root.manager.current = "game"
+
+
+
+
+##########################################
+##########   ACTUAL TUTORIALS   ##########
+##########################################
+<BitBrainAndTutorial>:
+	name: "bit_brain_and_tutorial"
+	Image:
+		source: "images/and.png"
+	Button:
+		id: "and_back_button"
+		text: "Back"
+		size_hint: None, None
+		pos: 5, 5
+		size: 50, 30
+		on_release: root.manager.current = "game"
+
+<BitBrainOrTutorial>:
+	name: "bit_brain_or_tutorial"
+	Image:
+		source: "images/or.png"
+	Button:
+		id: "or_back_button"
+		text: "Back"
+		size_hint: None, None
+		pos: 5, 5
+		size: 50, 30
+		on_release: root.manager.current = "game"
+
+<BitBrainCompTutorial>:
+	name: "bit_brain_comp_tutorial"
+	Image:
+		source: "images/comp.png"
+	Button:
+		id: "comp_back_button"
+		text: "Back"
+		size_hint: None, None
+		pos: 5, 5
+		size: 50, 30
+		on_release: root.manager.current = "game"
